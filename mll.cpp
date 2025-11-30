@@ -4,9 +4,9 @@ void createListPoli(ListPoli &LP) {
     LP.first = LP.last = NULL;
 }
 
-adrPoli createPoli(string nama) {
+adrPoli createPoli(string namaPoli) {
     adrPoli P = new Poliklinik;
-    P->nama = nama;
+    P->nama = namaPoli;
     P->firstDokter = NULL;
     P->next = P->prev = NULL;
     return P;
@@ -22,7 +22,7 @@ void insertPoli(ListPoli &LP, adrPoli P) {
     }
 }
 
-adrDokter createDokter(string n, string s, int j, i) {
+adrDokter createDokter(string namaDokter, string spesialis, int jam) {
     adrDokter D = new Dokter;
     D->nama = n;
     D->spesialis = s;
@@ -43,10 +43,10 @@ void insertDokter(adrPoli P, adrDokter D) {
     }
 }
 
-adrPoli findPoli(ListPoli LP, string nama) {
+adrPoli findPoli(ListPoli LP, string namaPoli) {
     adrPoli P = LP.first;
     while (P != NULL) {
-        if (P->nama == nama) return P;
+        if (P->nama == namaPoli) return P;
         P = P->next;
     }
     return NULL;
