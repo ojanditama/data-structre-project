@@ -1,16 +1,20 @@
 #ifndef MLL_H_INCLUDED
 #define MLL_H_INCLUDED
+#include <string>
 #include <iostream>
+
 using namespace std;
+
+typedef struct Dokter* adrDokter;
+typedef struct Poliklinik* adrPoli;
 
 struct Dokter {
     string nama;
     string spesialis;
     int jam;
-    Dokter *next, *prev;
+    Dokter next;
+    Dokter prev;
 };
-
-typedef Dokter* adrDokter;
 
 struct Poliklinik {
     string nama;
@@ -18,21 +22,17 @@ struct Poliklinik {
     Poliklinik *next, *prev;
 };
 
-typedef Poliklinik* adrPoli;
-
 struct ListPoli {
-    adrPoli first, last;
+    adrPoli first;
+    adrPoli last;
 };
 
 void createListPoli(ListPoli &LP);
-adrPoli createPoli(string nama);
+adrPoli createPoli(string namaPoli);
 void insertPoli(ListPoli &LP, adrPoli P);
-
-adrDokter createDokter(string n, string s, int j, int p);
+adrDokter createDokter(string namaDokter, string spesialis, int jam);
 void insertDokter(adrPoli P, adrDokter D);
-
-adrPoli findPoli(ListPoli LP, string nama);
-
+adrPoli findPoli(ListPoli LP, string namaPoli);
 void showAll(ListPoli LP);
 
 #endif
