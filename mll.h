@@ -7,7 +7,6 @@ struct Dokter {
     string nama;
     string spesialis;
     int jam;
-    int pengalaman;
     Dokter *next, *prev;
 };
 
