@@ -1,38 +1,48 @@
 #ifndef MLL_H_INCLUDED
 #define MLL_H_INCLUDED
-#include <string>
-#include <iostream>
 
+#include <iostream>
 using namespace std;
 
-typedef struct Dokter* adrDokter;
-typedef struct Poliklinik* adrPoli;
-
+// ==================== CHILD (DOKTER) ====================
 struct Dokter {
     string nama;
     string spesialis;
-    int jam;
-    Dokter next;
-    Dokter prev;
+    int jamPraktik;
+    int pengalaman;
+    Dokter *next, *prev;
 };
+typedef Dokter* adrDokter;
 
+// ==================== PARENT (POLIKLINIK) ====================
 struct Poliklinik {
     string nama;
     adrDokter firstDokter;
     Poliklinik *next, *prev;
 };
+typedef Poliklinik* adrPoli;
 
+// ==================== LIST PARENT ====================
 struct ListPoli {
-    adrPoli first;
-    adrPoli last;
+    adrPoli first, last;
 };
 
+// ====== PROTOTYPE FUNGSI ======
 void createListPoli(ListPoli &LP);
-adrPoli createPoli(string namaPoli);
+adrPoli createPoli(string nama);
 void insertPoli(ListPoli &LP, adrPoli P);
-adrDokter createDokter(string namaDokter, string spesialis, int jam);
+adrPoli findPoli(ListPoli LP, string nama);
+void deletePoli(ListPoli &LP, string nama);
+
+adrDokter createDokter(string nama, string spes, int jam, int exp);
 void insertDokter(adrPoli P, adrDokter D);
-adrPoli findPoli(ListPoli LP, string namaPoli);
-void showAll(ListPoli LP);
+void deleteDokter(adrPoli P, string namaDokter);
+
+void showDokter(adrPoli P);
+void showAll(ListPoli LP);
+
+int countDokter(adrPoli P);
+adrPoli poliDokterTerbanyak(ListPoli LP);
 
 #endif
+
