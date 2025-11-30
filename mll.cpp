@@ -2,7 +2,8 @@
 
 // ================= INISIALISASI LIST =================
 void createListPoli(ListPoli &LP) {
-    LP.first = LP.last = NULL;
+    LP.first = NULL;
+    LP.last = NULL;
 }
 
 // ================= CREATE NODE PARENT =================
@@ -10,7 +11,9 @@ adrPoli createPoli(string nama) {
     adrPoli P = new Poliklinik;
     P->nama = nama;
     P->firstDokter = NULL;
-    P->next = P->prev = NULL;
+    P->next = NULL;
+    P->prev = NULL;
+    
     return P;
 }
 
