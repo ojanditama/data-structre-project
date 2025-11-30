@@ -22,7 +22,7 @@ void insertPoli(ListPoli &LP, adrPoli P) {
     }
 }
 
-adrDokter createDokter(string n, string s, int j, int p) {
+adrDokter createDokter(string n, string s, int j, i) {
     adrDokter D = new Dokter;
     D->nama = n;
     D->spesialis = s;
