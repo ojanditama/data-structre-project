@@ -10,7 +10,8 @@ struct Dokter {
     string spesialis;
     int jamPraktik;
     int pengalaman;
-    Dokter *next, *prev;
+    Dokter next;
+    Dokter prev;
 };
 typedef Dokter* adrDokter;
 
@@ -18,13 +19,15 @@ typedef Dokter* adrDokter;
 struct Poliklinik {
     string nama;
     adrDokter firstDokter;
-    Poliklinik *next, *prev;
+    Poliklinik next;
+    Poliklinik prev;
 };
 typedef Poliklinik* adrPoli;
 
 // ==================== LIST PARENT ====================
 struct ListPoli {
-    adrPoli first, last;
+    adrPoli first;
+    adrPoli last;
 };
 
 // ====== PROTOTYPE FUNGSI ======
