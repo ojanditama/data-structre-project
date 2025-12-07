@@ -7,6 +7,25 @@ Sistem Administrasi Rumah Sakit (Poliklinik & Dokter) adalah sistem yang memodel
 # Model MLL
 
 # Spesifikasi Program
+a. insertPoli
+
+b. insertDokter
+
+c. createPoli
+
+d. createDokter
+
+e. deletePoli
+
+f. deleteDokter
+
+g. CreateListPoli
+
+h. showAll
+
+i. countDokter
+
+j. 
 
 
 # Anggota Kelompok
