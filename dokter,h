@@ -1,1 +1,21 @@
+#ifndef DOKTER_H_INCLUDED
+#define DOKTER_H_INCLUDED
 
+typedef Dokter* adrDokter;
+
+struct Dokter {
+    string nama;
+    string spesialis;
+    int jamPraktik;
+    int pengalaman;
+    Dokter next;
+    Dokter prev;
+};
+
+adrDokter createDokter(string nama, string spes, int jam, int exp);
+void insertDokter(adrPoli P, adrDokter D);
+void deleteDokter(adrPoli P, string namaDokter);
+void showDokter(adrPoli P);
+int countDokter(adrPoli P);
+
+#endif // DOKTER_H_INCLUDED
