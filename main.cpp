@@ -33,7 +33,8 @@ int main() {
 
         else if (pilih == 2) {
             string nama, spes;
-            int jam;
+            string jam;
+            int exp;
 
             cout << "Nama Dokter: ";
             cin >> nama;
@@ -41,6 +42,8 @@ int main() {
             cin >> spes;
             cout << "Jam Praktik: ";
             cin >> jam;
+            cout << "Lama Pengalaman Kerja (Tahun): ";
+            cout >> exp;
 
             cout << "Masukkan Poliklinik: ";
             string poli;
@@ -63,7 +66,8 @@ int main() {
 
         else if (pilih == 4) {
             string poli, nama, spes;
-            int jam;
+            string jam;
+            int exp;
 
             cout << "Nama Poliklinik: ";
             cin >> poli;
@@ -80,8 +84,10 @@ int main() {
             cin >> spes;
             cout << "Jam Praktik: ";
             cin >> jam;
+            cout << "Lama Pengalaman Kerja (Tahun): ";
+            cout >> exp;
 
-            insertDokter(P, createDokter(nama, spes, jam));
+            insertDokter(P, createDokter(nama, spes, jam, exp));
         }
 
         else if (pilih == 5) {
