@@ -35,29 +35,40 @@ adrPoli findPoli(ListPoli LP, string nama) {
 
 void deletePoli(ListPoli &LP, string nama) {
     adrPoli P = findPoli(LP, nama);
-    if (P == nullptr);
 
-    adrDokter D = P->firstDokter;
-    while (D != NULL) {
-        adrDokter temp = D;
-        D = D->next;
-        delete temp;
-    }
+    if (P != nullptr) {
+        adrDokter D = P->firstDokter;
+        while (D != nullptr) {
+            adrDokter temp = D;
+            D = D->next;
 
-    if (P == LP.first && P == LP.last) {
-        LP.first = LP.last = NULL;
-    } else if (P == LP.first) {
-        LP.first = P->next;
-        LP.first->prev = NULL;
-    } else if (P == LP.last) {
-        LP.last = P->prev;
-        LP.last->next = NULL;
-    } else {
-        P->prev->next = P->next;
-        P->next->prev = P->prev;
-    }
+            temp->next = nullptr;
+            temp->prev = nullptr;
+        }
+        P->firstDokter = nullptr;
 
-    delete P;
+        if (P == LP.first && P == LP.last) {
+            LP.first = nullptr;
+            LP.last  = nullptr;
+        }
+        else if (P == LP.first) {
+            LP.first = P->next;
+            if (LP.first != nullptr)
+                LP.first->prev = nullptr;
+        }
+        else if (P == LP.last) {
+            LP.last = P->prev;
+            if (LP.last != nullptr)
+                LP.last->next = nullptr;
+        }
+        else {
+            P->prev->next = P->next;
+            P->next->prev = P->prev;
+        }
+
+        P->next = nullptr;
+        P->prev = nullptr;
+    }
 }
 
 void showAll(ListPoli LP) {
