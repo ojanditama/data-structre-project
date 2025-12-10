@@ -75,7 +75,8 @@ adrDokter createDokter(string nama, string spes, int jam, int exp) {
     D->spesialis = spes;
     D->jamPraktik = jam;
     D->pengalaman = exp;
-    D->next = D->prev = NULL;
+    D->next = NULL.
+    D->prev = NULL;
     return D;
 }
 
@@ -122,7 +123,7 @@ void showDokter(adrPoli P) {
     while (D != NULL) {
         cout << "  - " << D->nama << " | " << D->spesialis
              << " | Jam: " << D->jamPraktik
-             << " | Pengalaman: " << D->pengalaman << " tahun\n";
+             << " | Pengalaman Kerja: " << D->pengalaman << " tahun\n";
         D = D->next;
     }
 }
